@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "namespace": "it.formazione.kafka.contract",
+  "name": "OrderEvent",
+  "fields": [
+    {"name": "orderId", "type": "long"},
+    {"name": "customerId", "type": "long"},
+    {"name": "amount", "type": "double"},
+    {"name": "timestamp", "type": "string"},
+    {"name": "currency", "type": "string", "default": "EUR"}
+  ]
+}

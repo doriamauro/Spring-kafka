@@ -8,6 +8,7 @@ public class PaymentConsumer {
   @KafkaListener(topics="orders-avro")
   public void receive(ConsumerRecord<String,OrderEvent> record) {
     OrderEvent event=record.value();
-    System.out.printf("AVRO order=%d amount=%s partition=%d offset=%d%n",event.getOrderId(),event.getAmount(),record.partition(),record.offset());
+    System.out.printf("AVRO order=%d amount=%s currency=%s partition=%d offset=%d%n",
+      event.getOrderId(),event.getAmount(),event.getCurrency(),record.partition(),record.offset());
   }
 }

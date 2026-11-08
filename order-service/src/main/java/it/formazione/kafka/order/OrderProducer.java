@@ -8,7 +8,7 @@ public class OrderProducer {
  private final KafkaTemplate<String,OrderEvent> template;
  public OrderProducer(KafkaTemplate<String,OrderEvent> template){this.template=template;}
  public void publish(long id){
-   OrderEvent event=OrderEvent.newBuilder().setOrderId(id).setCustomerId(42L).setAmount(79.90).setTimestamp(Instant.now().toString()).build();
+   OrderEvent event=OrderEvent.newBuilder().setOrderId(id).setCustomerId(42L).setAmount(79.90).setTimestamp(Instant.now().toString()).setCurrency("EUR").build();
    template.send("orders-avro",Long.toString(id),event).whenComplete((result,error)->{
      if(error!=null) System.err.println("AVRO publish error: "+error.getMessage());
      else System.out.printf("AVRO published partition=%d offset=%d%n",result.getRecordMetadata().partition(),result.getRecordMetadata().offset());
