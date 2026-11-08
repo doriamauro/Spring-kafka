@@ -7,8 +7,8 @@ spring:
     bootstrap-servers: localhost:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
       acks: all
       properties:
-        spring.json.add.type.headers: false
-        enable.idempotence: true
+        schema.registry.url: http://localhost:8081
+        auto.register.schemas: true

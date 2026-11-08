@@ -4,15 +4,14 @@ spring:
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
-      group-id: payment-json-group
+      group-id: payment-avro-group
       auto-offset-reset: earliest
       enable-auto-commit: false
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
       properties:
-        spring.json.value.default.type: it.formazione.kafka.payment.event.OrderEvent
-        spring.json.use.type.headers: false
-        spring.json.trusted.packages: it.formazione.kafka.payment.event
+        schema.registry.url: http://localhost:8081
+        specific.avro.reader: true
     listener:
       ack-mode: record
       concurrency: 1
