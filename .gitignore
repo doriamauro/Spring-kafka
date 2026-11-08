@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+**/target/
+*.log
+.DS_Store
+.env
