@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class PaymentConsumer {
   @KafkaListener(topics="orders-string")
   public void receive(ConsumerRecord<String,String> record){
-    System.out.printf("Payment received key=%s value=%s partition=%d offset=%d%n",record.key(),record.value(),record.partition(),record.offset());
+    System.out.printf("thread=%s key=%s value=%s partition=%d offset=%d%n",Thread.currentThread().getName(),record.key(),record.value(),record.partition(),record.offset());
   }
 }
