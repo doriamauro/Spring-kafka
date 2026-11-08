@@ -8,7 +8,9 @@ public class PaymentConsumer {
   @KafkaListener(topics="orders-avro")
   public void receive(ConsumerRecord<String,OrderEvent> record) {
     OrderEvent event=record.value();
-    System.out.printf("AVRO order=%d amount=%s currency=%s partition=%d offset=%d%n",
+    if(event.getAmount()<0) throw new IllegalArgumentException("Invalid amount: "+event.getAmount());
+    if(event.getOrderId()==500L) throw new IllegalStateException("Simulated temporary provider failure");
+    System.out.printf("PAYMENT OK order=%d amount=%s currency=%s partition=%d offset=%d%n",
       event.getOrderId(),event.getAmount(),event.getCurrency(),record.partition(),record.offset());
   }
 }
