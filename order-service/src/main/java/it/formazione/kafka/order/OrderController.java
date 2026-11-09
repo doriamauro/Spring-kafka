@@ -6,5 +6,5 @@ public class OrderController {
  private final OrderProducer producer;
  public OrderController(OrderProducer producer){this.producer=producer;}
  @PostMapping("/{id}/publish") @ResponseStatus(HttpStatus.ACCEPTED)
- public String publish(@PathVariable long id){producer.publish(id);return "Avro publish request accepted (async)";}
+ public String publish(@PathVariable("id") long id){producer.publish(id);return "Avro publish request accepted (async)";}
 }

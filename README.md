@@ -46,3 +46,7 @@ Apri **la radice del repository** in VS Code. Dal terminale PowerShell:
 Usa Java 21. Il wrapper `mvnw.cmd` scarica Maven 3.9.16 al primo utilizzo (Internet richiesto) e lo riutilizza successivamente. Su Linux/macOS usa `./mvnw`.
 
 Se hai già clonato il repository, esegui `git pull` sul branch `main` per ottenere i nuovi file.
+
+## Laboratori avanzati per una giornata
+
+I checkpoint a partire da lab-09 aggiungono esperimenti di guasto con database H2 persistenti. Segui le guide dettagliate in docs/09-redelivery-crash.md e successive. Payment Service espone una API diagnostica sulla porta 8082.
