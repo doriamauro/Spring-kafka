@@ -1,7 +1,7 @@
 package it.formazione.kafka.payment.db;
 import jakarta.persistence.*;
 import java.time.Instant;
-@Entity @Table(name="payment_record")
+@Entity @Table(name="payment_record", uniqueConstraints=@UniqueConstraint(name="uk_payment_order",columnNames="orderId"))
 public class PaymentRecord {
   @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id;
   @Column(nullable=false) private long orderId;
