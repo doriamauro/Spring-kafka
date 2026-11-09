@@ -5,7 +5,7 @@ Simulare la morte della JVM di Payment Service dopo il commit nel DB e prima del
 
 ## Preparazione
 - Usa il checkpoint lab-09-redelivery. Avvia Kafka e Schema Registry; crea orders-avro e orders-avro.DLT (3 partizioni ciascuno) come nel README.
-- Il database H2 è persistente e si trova in %USERPROFILE%/spring-kafka-lab/payments-lab09.mv.db.
+- Il database H2 è persistente e si trova in %USERPROFILE%/payments-lab09.mv.db.
 - Non avviare due Payment Service contemporaneamente. Il crash è abilitato solo se LAB_CRASH_AFTER_SAVE=true e orderId=909.
 
 ## Terminale 1: producer

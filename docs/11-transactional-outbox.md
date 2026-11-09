@@ -11,8 +11,8 @@ Attenzione: questo è un poller DIDATTICO a istanza singola. Non gestisce lock m
 ## Preparazione
 - Checkout lab-11-outbox, build .\mvnw.cmd clean verify.
 - Topic orders-avro e orders-avro.DLT (3 partition). Kafka + Schema Registry avviati.
-- Database H2 ordine: %USERPROFILE%/spring-kafka-lab/orders-lab11.mv.db.
-- Database H2 pagamento: %USERPROFILE%/spring-kafka-lab/payments-lab10.mv.db.
+- Database H2 ordine: %USERPROFILE%/orders-lab11.mv.db.
+- Database H2 pagamento: %USERPROFILE%/payments-lab10.mv.db.
 - Avvia Payment Service per osservare i messaggi, Order Service per creare gli ordini.
 - IMPORTANTISSIMO: da ora usa POST /orders/{id}/create, NON /publish. /publish è il percorso diretto introdotto nei vecchi laboratori e NON usa l'outbox.
 

@@ -7,7 +7,7 @@ Ripetere lo STESSO guasto del Lab 09, ma impedire un secondo pagamento per lo st
 - PaymentProcessor.process(orderId) ha una transazione DB: controlla se orderId esiste, altrimenti salva un nuovo PaymentRecord.
 - Il database ha inoltre un vincolo UNIQUE(orderId): è il controllo decisivo anche in presenza di richieste concorrenti.
 - Il listener invoca PaymentProcessor; il crash viene simulato DOPO il ritorno del metodo transazionale.
-- Questo laboratorio usa un database DIFFERENTE: %USERPROFILE%/spring-kafka-lab/payments-lab10.mv.db. Non modifica né cancella i dati del Lab 09.
+- Questo laboratorio usa un database DIFFERENTE: %USERPROFILE%/payments-lab10.mv.db. Non modifica né cancella i dati del Lab 09.
 - Usa group-id payment-lab10-group.
 
 ## Esecuzione

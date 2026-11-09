@@ -12,11 +12,12 @@ public class PaymentConsumer {
       @Value("${lab.crash-after-save:false}") boolean crashAfterSave){
     this.processor=processor;this.crashAfterSave=crashAfterSave;
   }
-  @KafkaListener(topics="orders-avro")
+  @KafkaListener(topics={"orders-avro","orders-avro-tx"})
   public void receive(ConsumerRecord<String,OrderEvent> record){
     OrderEvent event=record.value();
     if(event.getAmount()<0) throw new IllegalArgumentException("Negative amount");
     if(event.getOrderId()==500L) throw new IllegalStateException("Simulated provider error");
+    System.out.printf("LAB12 topic=%s partition=%d offset=%d thread=%s%n",record.topic(),record.partition(),record.offset(),Thread.currentThread().getName());
     boolean created=processor.process(event.getOrderId());
     if(created && crashAfterSave && event.getOrderId()==909L){
       System.err.println("LAB10 deliberate crash after DB commit, before Kafka offset commit");

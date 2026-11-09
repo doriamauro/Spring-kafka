@@ -6,7 +6,7 @@ lab:
     poll-delay-ms: 3000
 spring:
   datasource:
-    url: jdbc:h2:file:${user.home}/spring-kafka-lab/orders-lab11;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:file:${user.home}/orders-lab11;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password: ''
   jpa:

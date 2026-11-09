@@ -50,3 +50,15 @@ Se hai già clonato il repository, esegui `git pull` sul branch `main` per otten
 ## Laboratori avanzati per una giornata
 
 I checkpoint a partire da lab-09 aggiungono esperimenti di guasto con database H2 persistenti. Segui le guide dettagliate in docs/09-redelivery-crash.md e successive. Payment Service espone una API diagnostica sulla porta 8082.
+
+## Piano per una giornata (7 ore di laboratorio + 1 ora di discussione e pause)
+
+| Lab | Durata | Problema |
+|---|---:|---|
+| 09 — Redelivery | 90 min | Crash dopo commit DB prima del commit offset |
+| 10 — Idempotenza | 90 min | Duplicati impediti tramite chiave di business UNIQUE |
+| 11 — Outbox | 120 min | Kafka offline e crash dopo ack Kafka |
+| 12 — Kafka transactions | 90 min | Commit/rollback, read_committed e test |
+| Discussione | 60 min | Analisi guasti, domande e varianti |
+
+Leggi attentamente docs/09-redelivery-crash.md, docs/10-idempotent-consumer.md, docs/11-transactional-outbox.md, docs/12-kafka-transactions-and-tests.md. Ferma entrambe le applicazioni prima di cambiare branch.
